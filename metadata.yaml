@@ -1,0 +1,8 @@
+name: StyleLearningPlugin
+desc: 学习真人说话风格的插件，支持多维度风格分析和应用
+author: 'zhuokun666-6'
+version: 1.0.0
+repo: https://github.com/zhuokun666-6/astrabot_plugin_learning.git
+type: general
+requirement: []
+tags: [style-learning, conversation, personalization]

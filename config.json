@@ -1,0 +1,36 @@
+{
+  "message_filter": {
+    "command_prefix": [
+      "!",
+      "！",
+      "/"
+    ],
+    "min_message_length": 2,
+    "max_duplicate_count": 3,
+    "sensitive_words": [],
+    "whitelist_users": [],
+    "blacklist_users": []
+  },
+  "learning": {
+    "batch_size": 20,
+    "learning_interval": 3600,
+    "max_cache_size": 1000,
+    "style_update_threshold": 0.7
+  },
+  "database": {
+    "type": "sqlite",
+    "host": "localhost",
+    "port": 3306,
+    "username": "",
+    "password": "",
+    "database": ""
+  },
+  "style_application": {
+    "default_imitation_level": 0.7,
+    "max_history_length": 50
+  },
+  "logging": {
+    "level": "INFO",
+    "log_file": "learning_plugin.log"
+  }
+}
