@@ -169,8 +169,8 @@ class StyleLearningPlugin:
             print(f"[{self.name}] 数据库初始化失败: {e}")
     
     # 一、基础：有效消息收集与过滤模块
-    def on_message_received(self, message: Dict):
-        """消息接收处理函数"""
+    def handle_message(self, message: Dict):
+        """消息处理函数 - AstrBot标准接口"""
         # 全场景消息监听
         if not self._is_valid_message_format(message):
             return
@@ -191,6 +191,23 @@ class StyleLearningPlugin:
         
         # 触发学习
         self._trigger_learning(message_data)
+    
+    def on_enable(self):
+        """插件启用时调用 - AstrBot标准接口"""
+        print(f"[{self.name}] 插件已启用")
+        return True
+    
+    def on_disable(self):
+        """插件禁用时调用 - AstrBot标准接口"""
+        self.on_plugin_unload()
+        return True
+    
+    def on_reload(self):
+        """插件重载时调用 - AstrBot标准接口"""
+        # 重新加载配置
+        self.config = self._load_config()
+        print(f"[{self.name}] 插件已重载")
+        return True
     
     def _is_valid_message_format(self, message: Dict) -> bool:
         """验证消息格式是否有效"""

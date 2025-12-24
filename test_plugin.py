@@ -36,7 +36,7 @@ def test_plugin():
         "reply_to": None
     }
     
-    plugin.on_message_received(valid_message)
+    plugin.handle_message(valid_message)
     print("✓ 有效消息处理完成")
     
     # 测试命令过滤
@@ -50,7 +50,7 @@ def test_plugin():
         "reply_to": None
     }
     
-    plugin.on_message_received(command_message)
+    plugin.handle_message(command_message)
     print("✓ 命令消息过滤完成")
     
     # 测试链接过滤
@@ -64,7 +64,7 @@ def test_plugin():
         "reply_to": None
     }
     
-    plugin.on_message_received(link_message)
+    plugin.handle_message(link_message)
     print("✓ 链接消息过滤完成")
     
     # 测试2：风格分析与学习
@@ -94,7 +94,7 @@ def test_plugin():
             "is_group": False,
             "reply_to": None
         }
-        plugin.on_message_received(message)
+        plugin.handle_message(message)
         print(f"✓ 添加测试消息 {i+1}/{len(test_messages)}")
     
     # 测试3：获取风格提示词
